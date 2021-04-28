@@ -4,8 +4,12 @@ import SearchIcon from "@material-ui/icons/Search";
 import MicIcon from "@material-ui/icons/Mic";
 import { Button } from "@material-ui/core";
 import { useHistory } from "react-router";
+import { actionTypes } from "../datalayer/reducer";
+import { useStateValue } from "../datalayer/StateProvider";
 
 function Search(hideButtons = false) {
+  const [{}, dispatch] = useStateValue();
+
   const [input, setInput] = useState("");
   const history = useHistory();
 
@@ -13,6 +17,11 @@ function Search(hideButtons = false) {
     e.preventDefault();
 
     console.log("button clicked", input);
+
+    dispatch({
+      type: actionTypes.SET_SEARCH_TERM,
+      term: input,
+    });
     history.push("/search");
   };
   return (
