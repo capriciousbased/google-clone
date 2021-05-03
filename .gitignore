@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-
+/useGoogleSearch.js
 # secret 
 /keys.js
 # production
