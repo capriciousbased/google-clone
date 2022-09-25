@@ -1,16 +1,15 @@
 import React from "react";
 import "./SearchPage.css";
 import { useStateValue } from "../datalayer/StateProvider";
-import useGoogleSearch from "../useGoogleSearch";
-
+import useGoogleSearch from "./useGoogleSearch";
+import Response from "../response";
 import { Link } from "@material-ui/core";
-import Search from "../components/Search";
-import response from "../response";
+import Search from "./Search";
 const SearchPage = () => {
   const [{ term }, dispatch] = useStateValue();
   //live apicall
   //const { data } = useGoogleSearch(term);
-  const data = response;
+  const data = Response;
   console.log(data);
   return (
     <div className="searchPage">
